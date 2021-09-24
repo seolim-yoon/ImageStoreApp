@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ImageStoreApp</string>
+    <string name="title_search">Search</string>
+    <string name="title_store">Store</string>
+    <string name="hint_search_image">검색어를 입력해주세요.</string>
 </resources>
