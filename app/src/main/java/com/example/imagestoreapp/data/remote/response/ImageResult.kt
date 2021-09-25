@@ -39,4 +39,11 @@ data class ImageResult(
 }
 
 fun ImageResult.transformThumbnailModel() =
-    this.documents.map { ThumbnailModel(false, it.datetime, it.thumbnailUrl) }
+    this.documents.map {
+        ThumbnailModel(
+            dateTime = it.datetime,
+            url = it.thumbnailUrl,
+            isVideo = false,
+            isStore = false
+        )
+    }

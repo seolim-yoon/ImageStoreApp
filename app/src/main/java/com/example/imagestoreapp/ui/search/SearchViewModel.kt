@@ -1,7 +1,5 @@
 package com.example.imagestoreapp.ui.search
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -13,19 +11,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(private val searchRepository: SearchRepository): BaseViewModel() {
-    private var _keyword = MutableLiveData<String>()
-    val keyword: LiveData<String>
-        get() = _keyword
+    private var keyword: String = ""
 
     val searchPager = Pager(PagingConfig(pageSize = PER_PAGE)) {
-        SearchPagingSource(searchRepository, "hi")
+        SearchPagingSource(searchRepository, keyword)
     }.flow.cachedIn(viewModelScope)
 
-    fun setKeyword(keyword: String) {
-        _keyword.value = keyword
+    fun setKeyword(query: String?) {
+        keyword = query ?: ""
     }
 
     companion object {
-        const val PER_PAGE: Int = 10
+        const val PER_PAGE: Int = 1
     }
 }

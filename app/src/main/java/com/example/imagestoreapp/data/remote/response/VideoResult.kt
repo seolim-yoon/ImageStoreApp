@@ -35,4 +35,11 @@ data class VideoResult(
 }
 
 fun VideoResult.transformThumbnailModel() =
-    this.documents.map { ThumbnailModel(true, it.datetime, it.thumbnail) }
+    this.documents.map {
+        ThumbnailModel(
+            dateTime = it.datetime,
+            url = it.thumbnail,
+            isVideo = true,
+            isStore = false,
+        )
+    }

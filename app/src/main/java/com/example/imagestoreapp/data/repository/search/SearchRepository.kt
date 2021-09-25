@@ -1,11 +1,10 @@
 package com.example.imagestoreapp.data.repository.search
 
-import com.example.imagestoreapp.data.remote.response.ImageResult
-import com.example.imagestoreapp.data.remote.response.VideoResult
+import com.example.imagestoreapp.ui.model.ThumbnailModel
 import io.reactivex.Single
 
 interface SearchRepository {
-    fun getImageList(keyword: String, page: Int, size: Int): Single<ImageResult>
+    fun getImageList(keyword: String, page: Int, size: Int): Single<List<ThumbnailModel>>
 
-    fun getVideoList(keyword: String, page: Int, size: Int): Single<VideoResult>
+    fun getVideoList(keyword: String, page: Int, size: Int): Single<List<ThumbnailModel>>
 }

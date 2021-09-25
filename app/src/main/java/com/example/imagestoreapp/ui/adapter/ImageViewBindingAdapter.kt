@@ -10,12 +10,12 @@ object ImageViewBindingAdapter {
     @BindingAdapter("imageUrl")
     @JvmStatic
     fun loadImage(ivThumbnail: ImageView, url: String) {
-        Glide.with(ivThumbnail.context)
+       Glide.with(ivThumbnail.context)
             .load(url)
             .error(R.drawable.baseline_warning_24)
             .transition(DrawableTransitionOptions().crossFade())
             .fitCenter()
-            .timeout(5000)
+            .timeout(3000)
             .into(ivThumbnail)
     }
 }

@@ -23,6 +23,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <ImageView
+            android:id="@+id/iv_isVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{thumbnail.video ? @drawable/baseline_smart_display_24 : null}"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_isStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{thumbnail.store ? @drawable/baseline_favorite_24 : @drawable/baseline_favorite_border_24}"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
