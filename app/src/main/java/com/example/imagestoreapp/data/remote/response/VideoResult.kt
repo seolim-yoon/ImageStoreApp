@@ -40,6 +40,6 @@ fun VideoResult.transformThumbnailModel() =
             dateTime = it.datetime,
             url = it.thumbnail,
             isVideo = true,
-            isStore = false,
+            isStore = false
         )
     }

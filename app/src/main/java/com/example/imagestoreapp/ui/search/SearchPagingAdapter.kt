@@ -21,13 +21,15 @@ class SearchPagingAdapter(
             parent,
             false
         )
+
         val viewHolder = SearchImageListViewHolder(binding)
 
         binding.apply {
             ivIsStore.setOnClickListener {
-                (getItem(viewHolder.absoluteAdapterPosition) as ThumbnailModel).isStore =
-                    !(getItem(viewHolder.absoluteAdapterPosition) as ThumbnailModel).isStore
-                storeClick(getItem(viewHolder.absoluteAdapterPosition) as ThumbnailModel)
+                with(getItem(viewHolder.absoluteAdapterPosition) as ThumbnailModel) {
+                    isStore = !isStore
+                    storeClick(this)
+                }
                 invalidateAll()
             }
         }

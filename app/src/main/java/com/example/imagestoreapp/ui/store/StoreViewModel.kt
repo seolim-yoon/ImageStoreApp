@@ -27,4 +27,8 @@ class StoreViewModel @Inject constructor(private val storeRepository: StoreRepos
         }
         _storeList.value = list ?: arrayListOf()
     }
+
+    fun clearStoreList() {
+        _storeList.value = arrayListOf()
+    }
 }

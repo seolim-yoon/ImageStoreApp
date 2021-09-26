@@ -21,13 +21,15 @@ class StoreListAdapter(
             parent,
             false
         )
+
         val viewHolder = SearchImageListViewHolder(binding)
 
         binding.apply {
             ivIsStore.setOnClickListener {
-                (getItem(viewHolder.absoluteAdapterPosition) as ThumbnailModel).isStore =
-                    !(getItem(viewHolder.absoluteAdapterPosition) as ThumbnailModel).isStore
-                storeClick(getItem(viewHolder.absoluteAdapterPosition) as ThumbnailModel)
+                with(currentList[viewHolder.absoluteAdapterPosition]) {
+                    isStore = !isStore
+                    storeClick(this)
+                }
                 invalidateAll()
             }
         }
@@ -35,8 +37,6 @@ class StoreListAdapter(
     }
 
     override fun onBindViewHolder(holder: SearchImageListViewHolder, position: Int) {
-        getItem(position)?.let { thumbnail ->
-            holder.bind(thumbnail)
-        }
+        holder.bind(currentList[position])
     }
 }
