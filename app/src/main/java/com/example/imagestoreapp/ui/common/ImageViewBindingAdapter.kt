@@ -1,4 +1,4 @@
-package com.example.imagestoreapp.ui.adapter
+package com.example.imagestoreapp.ui.common
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

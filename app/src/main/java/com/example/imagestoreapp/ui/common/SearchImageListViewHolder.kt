@@ -1,4 +1,4 @@
-package com.example.imagestoreapp.ui.adapter
+package com.example.imagestoreapp.ui.common
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.imagestoreapp.databinding.ItemSearchImageBinding

@@ -6,9 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.paging.PagingDataAdapter
 import com.example.imagestoreapp.R
 import com.example.imagestoreapp.databinding.ItemSearchImageBinding
-import com.example.imagestoreapp.ui.adapter.SearchImageListViewHolder
+import com.example.imagestoreapp.ui.common.SearchImageListViewHolder
 import com.example.imagestoreapp.ui.model.ThumbnailModel
-import com.example.imagestoreapp.ui.adapter.ThumbnailModelDiffCallback
+import com.example.imagestoreapp.ui.common.ThumbnailModelDiffCallback
 
 class SearchPagingAdapter(
     private val storeClick: (ThumbnailModel) -> Unit

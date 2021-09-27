@@ -1,4 +1,4 @@
-package com.example.imagestoreapp.ui.adapter
+package com.example.imagestoreapp.ui.common
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.imagestoreapp.ui.model.ThumbnailModel
