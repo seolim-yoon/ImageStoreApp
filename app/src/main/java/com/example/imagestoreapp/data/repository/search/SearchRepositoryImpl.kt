@@ -8,6 +8,7 @@ import com.example.imagestoreapp.di.NetworkModule.Companion.API_KEY
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class SearchRepositoryImpl @Inject constructor(
@@ -16,12 +17,12 @@ class SearchRepositoryImpl @Inject constructor(
 ) : SearchRepository {
 
     override fun getImageList(keyword: String, page: Int, size: Int): Single<ImageResult> =
-        imageStoreService.getImageList(API_KEY, keyword, "recency", page, size)
+        imageStoreService.getImageList(API_KEY, keyword, "recency", page, size).subscribeOn(Schedulers.io())
 
     override fun getTotalList(keyword: String, page: Int, size: Int) : Flowable<Any> =
         Single.merge(
-            imageStoreService.getImageList(API_KEY, keyword, "recency", page, size),
-            imageStoreService.getVideoList(API_KEY, keyword, "recency", page, size)
+            imageStoreService.getImageList(API_KEY, keyword, "recency", page, size).subscribeOn(Schedulers.io()),
+            imageStoreService.getVideoList(API_KEY, keyword, "recency", page, size).subscribeOn(Schedulers.io())
         )
 
     override fun getAllHistory() : Single<List<History>> =

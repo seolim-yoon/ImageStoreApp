@@ -10,7 +10,6 @@ import com.example.imagestoreapp.ui.model.ThumbnailModel
 import com.example.imagestoreapp.ui.search.SearchViewModel.Companion.PER_PAGE
 import com.example.imagestoreapp.ui.search.SearchViewModel.Companion.VIDEO_MAX_PAGE
 import io.reactivex.Single
-import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class SearchPagingSource @Inject constructor(
@@ -60,7 +59,6 @@ class SearchPagingSource @Inject constructor(
         }
 
         return response
-            .subscribeOn(Schedulers.io())
             .map<LoadResult<Int, ThumbnailModel>> {
                 LoadResult.Page(
                     data = list.sortedByDescending { it.dateTime },
